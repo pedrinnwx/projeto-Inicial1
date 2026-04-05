@@ -1,11 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site do Pedrin</title>
+    <title>No Núcleo de Elarion - Home</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <nav class="barra-nav">
+        <div class="conteiner-nav">
+            <h1 class="logo">🏛️ No Núcleo de Elarion</h1>
+            <ul class="menu-nav">
+                <li><a href="index.html" class="link-nav ativo">Home</a></li>
+                <li><a href="sobre.html" class="link-nav">Sobre</a></li>
+                <li><a href="jogo.html" class="link-nav">Jogo</a></li>
+            </ul>
+            <button id="theme-btn" class="botao-tema">🌙 Tema Escuro</button>
+        </div>
+    </nav>
+
+    <main class="conteiner">
+        <section class="secao-inicial">
+            <div class="heroi">
+                <h2>Bem-vindo ao No Núcleo de Elarion!</h2>
+                <p class="subtitulo">Uma jornada de descoberta e mistério nas ruínas antigas</p>
+                
+                <div class="descricao-jogo">
+                    <p>
+                        Assuma o papel de Kael Varyn, um arqueólogo renegado em busca do lendário Núcleo de Elarion. 
+                        Explore ruínas proibidas, desvende segredos esquecidos e enfrente decisões que podem mudar o destino do mundo. 
+                        Uma aventura de exploração e escolhas morais.
+                    </p>
+                </div>
+
+                <!-- Input para Nome -->
+                <div class="secao-entrada">
+                    <label for="nome">Digite seu nome:</label>
+                    <input type="text" id="nome" placeholder="Seu nome aqui...">
+                    <button onclick="exibirSaudacao()">Iniciar</button>
+                </div>
+
+                <!-- Mensagem Personalizada -->
+                <div id="mensagem-saudacao" class="mensagem-saudacao"></div>
+
+                <!-- Botão para Acessar o Jogo -->
+                <a href="jogo.html" class="btn-jogo">▶ Jogar Agora</a>
+            </div>
+
+            <!-- Stats do Jogo -->
+            <div class="stats-jogo">
+                <div class="stat">
+                    <h3>Vida Máx.</h3>
+                    <p id="stat-vida">100</p>
+                </div>
+                <div class="stat">
+                    <h3>Fragmentos</h3>
+                    <p id="stat-fragmentos">20</p>
+                </div>
+                <div class="stat">
+                    <h3>Fases</h3>
+                    <p id="stat-fases">3</p>
+                </div>
+                <div class="stat">
+                    <h3>Inimigos</h3>
+                    <p id="stat-inimigos">12</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="rodape">
+        <p>&copy; Desenvolvido por Pedrin.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

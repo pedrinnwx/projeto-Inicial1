@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Núcleo de Elarion - Jogo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Menu de Navegação -->
+    <nav class="barra-nav">
+        <div class="conteiner-nav">
+            <h1 class="logo">🏛️ No Núcleo de Elarion</h1>
+            <h1 class="logo"><img src="logo_elarion.png" alt="No Núcleo de Elarion"></h1>
+            <ul class="menu-nav">
+                <li><a href="index.html" class="link-nav">Home</a></li>
+                <li><a href="sobre.html" class="link-nav">Sobre</a></li>
+                <li><a href="jogo.html" class="link-nav ativo">Jogo</a></li>
+            </ul>
+            <button id="theme-btn" class="botao-tema">🌙 Tema Escuro</button>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="conteiner">
+        <section class="secao-jogo">
+            <h2>Jogar No Núcleo de Elarion</h2>
+            
+            <!-- Informações de Acesso -->
+            <div id="acesso-info" class="acesso-info">
+                <p id="msg-acesso"></p>
+            </div>
+
+            <!-- Área do Jogo (Simulada/Iframe) -->
+            <div class="area-jogo">
+                <div id="conteudo-blur" class="conteudo-blur">
+                    <!-- Iframe simulado ou placeholder -->
+                    <div class="espaco-jogo">
+                        <h3>�️ No Núcleo de Elarion</h3>
+                        <p>Espaço reservado para o jogo em Construct</p>
+                        <div class="icones-jogo">
+                            <span>🏛️</span>
+                            <span>📜</span>
+                            <span>⚔️</span>
+                            <span>💎</span>
+                        </div>
+                        <p style="margin-top: 20px; font-size: 18px;">
+                            Pressione EXPLORAR para começar sua jornada!
+                        </p>
+                        <button class="btn-jogar">🏛️ EXPLORAR</button>
+                    </div>
+                    
+                    <!-- Conteúdo Sensível com Blur -->
+                    <div class="conteudo-sensivel">
+                        <h3>⚠️ Conteúdo para Maiores de Idade</h3>
+                        <p>
+                            Atenção! Este jogo contém cenas de exploração de ruínas antigas, 
+                            confrontos com criaturas sombrias e decisões morais difíceis. 
+                            Material recomendado apenas para maiores de 18 anos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controles do Jogo -->
+            <div class="controles-jogo">
+                <h3>Controles</h3>
+                <div class="grade-controles">
+                    <div class="controle">
+                        <kbd>WASD</kbd>
+                        <span>Mover Personagem</span>
+                    </div>
+                    <div class="controle">
+                        <kbd>ESPAÇO</kbd>
+                        <span>Pular</span>
+                    </div>
+                    <div class="controle">
+                        <kbd>MOUSE1</kbd>
+                        <span>Atacar</span>
+                    </div>
+                    <div class="controle">
+                        <kbd>Q</kbd>
+                        <span>Tocha/Arma</span>
+                    </div>
+                    <div class="controle">
+                        <kbd>I</kbd>
+                        <span>Inventário</span>
+                    </div>
+                    <div class="controle">
+                        <kbd>ESC</kbd>
+                        <span>Menu/Pausar</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botões de Ação -->
+            <div class="acoes-jogo">
+                <a href="index.html" class="btn-secundario">← Voltar</a>
+                <a href="sobre.html" class="btn-secundario">Sobre o Jogo</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="rodape">
+        <p>&copy;Desenvolvido por Pedrin.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
