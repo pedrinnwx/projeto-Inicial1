@@ -87,6 +87,9 @@ function inicializarSite() {
     
     // Restaurar tema salvo
     restaurarTema();
+    
+    // Configurar botão de jogar
+    configurarBotaoJogar();
 }
 
 // ===== PREENCHER STATS DO JOGO =====
@@ -164,6 +167,24 @@ function restaurarTema() {
         document.body.classList.add('modo-escuro');
         const botoes = document.querySelectorAll('#theme-btn');
         botoes.forEach(btn => btn.textContent = '☀️ Tema Claro');
+    }
+}
+
+// ===== CARREGAR JOGO =====
+function configurarBotaoJogar() {
+    const btnJogar = document.getElementById('btn-jogar');
+    if (btnJogar) {
+        btnJogar.addEventListener('click', function() {
+            const espacoJogo = document.getElementById('espaco-jogo');
+            if (espacoJogo && idadeUsuario >= 18) {
+                // Remove o padding interno para o iframe ocupar todo o espaço
+                espacoJogo.style.padding = '0';
+                espacoJogo.style.display = 'block';
+                espacoJogo.innerHTML = '<iframe src="Jogo/Web/index.html" width="100%" height="100%" style="border:none; border-radius:12px; min-height: 400px;" allowfullscreen="true" scrolling="no"></iframe>';
+            } else if (idadeUsuario < 18) {
+                alert('Você não tem idade suficiente para jogar.');
+            }
+        });
     }
 }
 
