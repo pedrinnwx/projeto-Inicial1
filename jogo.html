@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>No Núcleo de Elarion - Jogo</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <nav class="barra-nav">
         <div class="conteiner-nav">
@@ -23,7 +25,7 @@
     <main class="conteiner">
         <section class="secao-jogo">
             <h2>Jogar No Núcleo de Elarion</h2>
-            
+
             <!-- Informações de Acesso -->
             <div id="acesso-info" class="acesso-info">
                 <p id="msg-acesso"></p>
@@ -47,26 +49,45 @@
                         </p>
                         <button class="btn-jogar" id="btn-jogar">🏛️ EXPLORAR</button>
                     </div>
-                    
+
                     <!-- Conteúdo Sensível com Blur -->
                     <div class="conteudo-sensivel">
                         <h3>⚠️ Conteúdo para Maiores de Idade</h3>
                         <p>
-                            Atenção! Este jogo contém cenas de exploração de ruínas antigas, 
-                            confrontos com criaturas sombrias e decisões morais difíceis. 
+                            Atenção! Este jogo contém cenas de exploração de ruínas antigas,
+                            confrontos com criaturas sombrias e decisões morais difíceis.
                             Material recomendado apenas para maiores de 18 anos.
                         </p>
                     </div>
                 </div>
             </div>
 
-            <!-- Controles do Jogo -->
             <div class="controles-jogo">
                 <h3>Controles</h3>
                 <div class="grade-controles">
                     <div class="controle">
-                        <kbd>↑ ↓ ← →</kbd>
+                        <kbd>WASD</kbd>
                         <span>Mover Personagem</span>
+                    </div>
+                    <div class="controle">
+                        <kbd>ESPAÇO</kbd>
+                        <span>Pular</span>
+                    </div>
+                    <div class="controle">
+                        <kbd>MOUSE1</kbd>
+                        <span>Atacar</span>
+                    </div>
+                    <div class="controle">
+                        <kbd>Q</kbd>
+                        <span>Tocha/Arma</span>
+                    </div>
+                    <div class="controle">
+                        <kbd>I</kbd>
+                        <span>Inventário</span>
+                    </div>
+                    <div class="controle">
+                        <kbd>ESC</kbd>
+                        <span>Menu/Pausar</span>
                     </div>
                 </div>
             </div>
@@ -86,4 +107,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
