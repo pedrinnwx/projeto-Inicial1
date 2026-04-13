@@ -1,34 +1,30 @@
 const gameInfo = {
-    titulo: "No Núcleo de Elarion",
-    vidaMaxima: 100,
-    fragmentos: 20,
-    fases: 3,
-    inimigos: 12
+    titulo: "No Núcleo de Elarion"
 };
 
 let idadeUsuario = null;
 let temaEscuro = false;
 
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     verificarIdade();
     inicializarSite();
 });
 
 function verificarIdade() {
     const idadeStr = prompt('Bem-vindo ao No Núcleo de Elarion! Qual é sua idade?');
-    
+
     if (idadeStr === null) {
         // Usuário cancelou o prompt
         idadeUsuario = null;
     } else {
         idadeUsuario = parseInt(idadeStr);
-        
+
         if (isNaN(idadeUsuario)) {
             alert('Por favor, digite um número válido!');
             verificarIdade(); // Pedir novamente
             return;
         }
-        
+
         // Verificação if/else para acesso
         if (idadeUsuario >= 18) {
             alert('✓ Acesso liberado');
@@ -37,7 +33,7 @@ function verificarIdade() {
             alert('✗ Acesso negado - Conteúdo restrito para maiores de 18 anos');
             aplicarBlur();
         }
-        
+
         // Atualizar mensagem na página de jogo
         atualizarMensagemAcesso();
     }
@@ -45,7 +41,7 @@ function verificarIdade() {
 
 function atualizarMensagemAcesso() {
     const acessoInfo = document.getElementById('acesso-info');
-    
+
     if (acessoInfo) {
         if (idadeUsuario >= 18) {
             acessoInfo.textContent = '✓ Acesso Liberado - Aproveite o jogo!';
@@ -76,39 +72,24 @@ function removerBlur() {
 
 // ===== INICIALIZAR SITE =====
 function inicializarSite() {
-    // Preencher informações do jogo na Home
-    preencherStatsJogo();
-    
     // Configurar botão de tema
     configurarBotaoTema();
-    
+
     // Verificar se é ano de lançamento
     verificarLancamento();
-    
+
     // Restaurar tema salvo
     restaurarTema();
-    
+
     // Configurar botão de jogar
     configurarBotaoJogar();
 }
 
-// ===== PREENCHER STATS DO JOGO =====
-function preencherStatsJogo() {
-    const statVida = document.getElementById('stat-vida');
-    const statFragmentos = document.getElementById('stat-fragmentos');
-    const statFases = document.getElementById('stat-fases');
-    const statInimigos = document.getElementById('stat-inimigos');
-    
-    if (statVida) statVida.textContent = gameInfo.vidaMaxima;
-    if (statFragmentos) statFragmentos.textContent = gameInfo.fragmentos;
-    if (statFases) statFases.textContent = gameInfo.fases;
-    if (statInimigos) statInimigos.textContent = gameInfo.inimigos;
-}
 
 // ===== VERIFICAR ANO DE LANÇAMENTO =====
 function verificarLancamento() {
     const anoAtual = new Date().getFullYear();
-    
+
     if (anoAtual === gameInfo.anoLancamento) {
         alert('🎉 Embarque nesta jornada épica! Seja bem-vindo ao No Núcleo de Elarion!');
     }
@@ -118,16 +99,16 @@ function verificarLancamento() {
 function exibirSaudacao() {
     const nomeInput = document.getElementById('nome');
     const mensagemDiv = document.getElementById('mensagem-saudacao');
-    
+
     if (!nomeInput || !mensagemDiv) return;
-    
+
     const nome = nomeInput.value.trim();
-    
+
     if (nome === '') {
         alert('Por favor, digite seu nome!');
         return;
     }
-    
+
     const mensagem = `Bem-vindo, ${nome}! Prepare-se para salvar a Terra! 🚀`;
     mensagemDiv.textContent = mensagem;
     mensagemDiv.classList.add('show');
@@ -136,7 +117,7 @@ function exibirSaudacao() {
 // ===== BOTÃO TEMA CLARO/ESCURO =====
 function configurarBotaoTema() {
     const botaoTema = document.querySelectorAll('#theme-btn');
-    
+
     botaoTema.forEach(btn => {
         btn.addEventListener('click', alternaTema);
     });
@@ -145,7 +126,7 @@ function configurarBotaoTema() {
 function alternaTema() {
     const botoes = document.querySelectorAll('#theme-btn');
     temaEscuro = !temaEscuro;
-    
+
     if (temaEscuro) {
         document.body.classList.add('modo-escuro');
         botoes.forEach(btn => btn.textContent = '☀️ Tema Claro');
@@ -153,7 +134,7 @@ function alternaTema() {
         document.body.classList.remove('modo-escuro');
         botoes.forEach(btn => btn.textContent = '🌙 Tema Escuro');
     }
-    
+
     // Salvar preferência
     localStorage.setItem('tema-escuro', temaEscuro);
 }
@@ -161,7 +142,7 @@ function alternaTema() {
 // ===== RESTAURAR TEMA SALVO =====
 function restaurarTema() {
     const temaSalvo = localStorage.getItem('tema-escuro');
-    
+
     if (temaSalvo === 'true') {
         temaEscuro = true;
         document.body.classList.add('modo-escuro');
@@ -174,13 +155,13 @@ function restaurarTema() {
 function configurarBotaoJogar() {
     const btnJogar = document.getElementById('btn-jogar');
     if (btnJogar) {
-        btnJogar.addEventListener('click', function() {
+        btnJogar.addEventListener('click', function () {
             const espacoJogo = document.getElementById('espaco-jogo');
             if (espacoJogo && idadeUsuario >= 18) {
                 // Remove o padding interno para o iframe ocupar todo o espaço
                 espacoJogo.style.padding = '0';
                 espacoJogo.style.display = 'block';
-                espacoJogo.innerHTML = '<iframe src="Jogo/Web/index.html" width="100%" height="100%" style="border:none; border-radius:12px; min-height: 400px;" allowfullscreen="true" scrolling="no"></iframe>';
+                espacoJogo.innerHTML = '<iframe src="Jogo/No Núcleo de Elarion/index.html" width="100%" height="100%" style="border:none; border-radius:12px; min-height: 400px;" allowfullscreen="true" scrolling="no"></iframe>';
             } else if (idadeUsuario < 18) {
                 alert('Você não tem idade suficiente para jogar.');
             }
@@ -189,11 +170,11 @@ function configurarBotaoJogar() {
 }
 
 // ===== PERMITIR ENTER NO INPUT DE NOME =====
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const nomeInput = document.getElementById('nome');
-    
+
     if (nomeInput) {
-        nomeInput.addEventListener('keypress', function(e) {
+        nomeInput.addEventListener('keypress', function (e) {
             if (e.key === 'Enter') {
                 exibirSaudacao();
             }
@@ -205,8 +186,6 @@ document.addEventListener('DOMContentLoaded', function() {
 console.log('=== INFORMAÇÕES DO JOGO ===');
 console.log('Título:', gameInfo.titulo);
 console.log('Ano de Lançamento:', gameInfo.anoLancamento);
-console.log('Fases:', gameInfo.fases);
-console.log('Inimigos:', gameInfo.inimigos);
 console.log('Pontuação Máxima:', gameInfo.pontuacaoMaxima);
 console.log('Idade do Usuário:', idadeUsuario);
 console.log('==========================');
